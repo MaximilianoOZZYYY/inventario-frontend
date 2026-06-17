@@ -15,25 +15,29 @@
     table { width: 100%; border-collapse: collapse; background: white; }
     th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
     th { background-color: #0066cc; color: white; }
+    .acciones button { width: auto; padding: 6px 10px; margin: 2px; font-size: 0.85rem; }
+    .btn-editar { background: #f39c12; }
+    .btn-eliminar { background: #e74c3c; }
   </style>
 </head>
 <body>
   <div class="container">
     <h2>Panel de Inventario (MongoDB Atlas)</h2>
     <div class="card">
-      <h3>Registrar Producto</h3>
+      <h3 id="tituloForm">Registrar Producto</h3>
       <form id="formProducto">
+        <input type="hidden" id="productoId">
         <input type="text" id="nombre" placeholder="Nombre del artículo" required>
         <input type="number" id="precio" placeholder="Precio ($)" required>
         <input type="number" id="existencia" placeholder="Cantidad" required>
-        <button type="submit">Enviar a la Nube</button>
+        <button type="submit" id="btnSubmit">Enviar a la Nube</button>
       </form>
     </div>
     <div class="card">
       <h3>Existencias en Base de Datos</h3>
       <table>
         <thead>
-          <tr><th>Artículo</th><th>Precio</th><th>Stock</th></tr>
+          <tr><th>Artículo</th><th>Precio</th><th>Stock</th><th>Acciones</th></tr>
         </thead>
         <tbody id="tabla"></tbody>
       </table>
